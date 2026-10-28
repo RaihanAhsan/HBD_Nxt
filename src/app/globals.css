@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+  background: #1b1d2a;
+  overscroll-behavior: none;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+/* Efek garis scanline tipis di layar LCD */
+.lcd-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(15, 56, 15, 0.08) 0px,
+    rgba(15, 56, 15, 0.08) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Teks berkedip ala game retro */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.blink {
+  animation: blink 0.9s steps(1) infinite;
+}
+
+/* Piringan lagu berputar (widget musik) */
+@keyframes spin-disc {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-disc {
+  animation: spin-disc 4s linear infinite;
+}
+
+/* Judul lagu berjalan */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+.marquee {
+  animation: marquee 9s linear infinite;
+}
